@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-08T17:13:31 IST" name="Default suite" finished-at="2025-04-08T17:13:51 IST" duration-ms="19723">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.gmail.Runner.TestRunner@239a307b]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2025-04-08T17:13:31 IST" name="Default test" finished-at="2025-04-08T17:13:51 IST" duration-ms="19723">
+      <class name="com.gmail.Runner.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.gmail.Runner.TestRunner@239a307b]" started-at="2025-04-08T17:13:31 IST" name="setUpClass" finished-at="2025-04-08T17:13:32 IST" duration-ms="674" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@16073fa8]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.gmail.Runner.TestRunner@239a307b]" started-at="2025-04-08T17:13:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-04-08T17:13:51 IST" duration-ms="18912" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that the "Create account" text is displayed correctly to users."]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Create Account functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.gmail.Runner.TestRunner@239a307b]" started-at="2025-04-08T17:13:51 IST" name="tearDownClass" finished-at="2025-04-08T17:13:51 IST" duration-ms="20" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.gmail.Runner.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
