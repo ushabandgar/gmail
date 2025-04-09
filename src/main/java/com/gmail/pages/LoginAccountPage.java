@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import com.gmail.base.Keyword;
+import com.gmail.base.WaitFor;
 
 public class LoginAccountPage {
 	
@@ -25,17 +26,19 @@ public class LoginAccountPage {
 	}
 
 	public void ClickOnSignBtn() {
-		//Keyword keyword = new Keyword();
-		signInBTn.click();
+		WaitFor.elementTobeVisible(signInBTn);
+		keyword.clickOn(signInBTn);
 		Assert.assertTrue(Keyword.driver.getCurrentUrl().contains("https://accounts.google.com/"));
 		
 	}
 
 	public void enterValidCredentials() throws InterruptedException {
-		//Keyword keyword = new Keyword()
-		emailInputBox.click();
+		WaitFor.elementTobeVisible(emailInputBox);
+		keyword.clickOn(emailInputBox);
 		emailInputBox.sendKeys("rosh19989@gmail.com");
 		nextBtn.click();
+	
+		
 		passwordInputBox.sendKeys("Rosh@12345");
 		nextBtn.click();
 	}
