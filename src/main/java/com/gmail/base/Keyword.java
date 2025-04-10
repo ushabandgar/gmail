@@ -7,11 +7,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.gmail.exception.InvalidBrowserException;
+
 public class Keyword {
 
 	public static RemoteWebDriver driver;
 
-	public void openBrowser(String browserName) {
+	public void openBrowser(String browserName) throws InvalidBrowserException {
 
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			driver = new ChromeDriver();
@@ -23,6 +25,7 @@ public class Keyword {
 			System.out.println("Invald browser name");
 		}
 		System.out.println("Launched browser: " + browserName);
+		throw new InvalidBrowserException(browserName);
 	}
 
 	public void launchUrl(String url) {

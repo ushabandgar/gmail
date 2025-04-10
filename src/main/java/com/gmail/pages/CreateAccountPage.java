@@ -22,4 +22,12 @@ public class CreateAccountPage {
 		Assert.assertTrue(createAccount.isDisplayed());
 	}
 
+	
+	
+	@FindBy (xpath="//div[@class=\"header__aside\"]/descendant::span[text()='Sign in']")
+	WebElement signIn;
+	
+	public void clickOnSignInButton() {
+		signIn.click();
+	}
 }
