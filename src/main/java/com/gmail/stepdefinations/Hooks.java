@@ -10,7 +10,7 @@ public class Hooks {
 	Keyword keyword=new Keyword();
 	@Before
 	public void setUp() {
-		keyword.openBrowser("firefox");
+		keyword.openBrowser("chrome");
 		keyword.launchUrl("https://workspace.google.com/intl/en-US/gmail/");
 	}
 	

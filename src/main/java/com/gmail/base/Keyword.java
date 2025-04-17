@@ -28,12 +28,17 @@ public class Keyword {
 	public void launchUrl(String url) {
 		driver.get(url);
 		System.out.println("Launched url: " + url);
+		driver.manage().window().maximize();
 	}
 
 	public void clickOn(WebElement element) {
 		element.click();
-		System.out.println("Clicked on: " + element.getText());
+		//System.out.println("Clicked on: " + element.getText());
 
+	}
+
+	public void sendkeys(WebElement element, String text) {
+		element.sendKeys(text);
 	}
 
 	public void closeBrowser() {
