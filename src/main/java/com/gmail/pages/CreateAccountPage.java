@@ -13,6 +13,7 @@ public class CreateAccountPage {
 	@FindBy(xpath="//div[@class=\"header__aside\"]/gws-dropdown-button/div")
 	private  WebElement createAccount;
 	
+	
 	public CreateAccountPage() {
 		PageFactory.initElements(Keyword.driver, this);
 	}
@@ -22,4 +23,10 @@ public class CreateAccountPage {
 		Assert.assertTrue(createAccount.isDisplayed());
 	}
 
+	
+	public void verifyCreateAccountClickable(String CreateAccount) {
+		Assert.assertTrue(createAccount.isEnabled());
+		createAccount.click();
+		System.out.println("clicked on Create Account button");
+	}
 }

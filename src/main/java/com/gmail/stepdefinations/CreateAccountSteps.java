@@ -13,4 +13,9 @@ public class CreateAccountSteps {
 		createAccountPage.verifyCreateAccountDisplayed(CreateAccount);
 	}
 
+	@Then("{string} button is clickable")
+	public void reateAccountClickableOrNot(String CreateAccount) {
+		CreateAccountPage createAccountPage=new CreateAccountPage();
+		createAccountPage.verifyCreateAccountClickable(CreateAccount);
+	}
 }
