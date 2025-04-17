@@ -8,6 +8,7 @@ import io.cucumber.java.Before;
 public class Hooks {
 
 	Keyword keyword=new Keyword();
+	
 	@Before
 	public void setUp() {
 		keyword.openBrowser("firefox");
