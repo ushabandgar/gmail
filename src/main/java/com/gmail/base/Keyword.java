@@ -19,10 +19,10 @@ public class Keyword {
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("Firefox")) {
 			driver = new FirefoxDriver();
-		} else if (browserName.equalsIgnoreCase("Firefox")) {
+		} else if (browserName.equalsIgnoreCase("Edge")) {
 			driver = new EdgeDriver();
 		} else {
-			System.out.println("Invald browser name");
+			System.out.println("Invalid browser name");
 		}
 		System.out.println("Launched browser: " + browserName);
 		throw new InvalidBrowserException(browserName);
