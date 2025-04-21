@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.gmail.base.Keyword;
+import com.gmail.base.WaitFor;
 
 public class SignInPage {
 
@@ -23,6 +24,7 @@ public class SignInPage {
 	WebElement next;
 
 	public void clickOnNextButton() {
+		WaitFor.elementToBeClick(next);
 		next.click();
 
 	}
@@ -31,6 +33,7 @@ public class SignInPage {
 	WebElement password;
 	
 	public void enterPassword(String password) {
+		WaitFor.elementTobeVisible(this.password);
 		this.password.sendKeys(password);
 	}
 }
