@@ -2,6 +2,7 @@ package com.gmail.stepdefinations;
 
 import com.gmail.pages.CreateAccountPage;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -24,11 +25,23 @@ public class CreateAccountSteps {
 		CreateAccountPage createAccountPage = new CreateAccountPage();
 		createAccountPage.clickOnCreateAccount(CreateAccount);
 	}
-	
-	
+
 	@Then("On click of {string} showing options {string} and {string}")
-	public void createAccountClickOptions(String createAccount,String forMyPersonalUse, String forMyWorkOrBusiness) {
+	public void createAccountClickOptions(String createAccount, String forMyPersonalUse, String forMyWorkOrBusiness) {
 		CreateAccountPage createAccountPage = new CreateAccountPage();
-		createAccountPage.verifyCreateAccountOptions(createAccount,forMyPersonalUse,forMyWorkOrBusiness);
+		createAccountPage.verifyCreateAccountOptions(createAccount, forMyPersonalUse, forMyWorkOrBusiness);
+	}
+
+	@And("User click on {string} option")
+	public void clickOnForMyPersonalUseOption(String forMyPersonalUse) {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.clickOnForMyPersonalUse(forMyPersonalUse);
+
+	}
+
+	@Then("User should navigate to Signup page")
+	public void verifyUserNavigateToSignUpPageOnClickForMyPersonalUse() {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.verifyUserNavigateToSignUpPageOnClickForMyPersonalUse();
 	}
 }
