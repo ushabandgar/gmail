@@ -7,11 +7,13 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.gmail.exception.InvalidBrowserException;
+
 public class Keyword {
 
 	public static RemoteWebDriver driver;
 
-	public void openBrowser(String browserName) {
+	public void openBrowser(String browserName) throws InvalidBrowserException {
 
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			driver = new ChromeDriver();
@@ -23,17 +25,23 @@ public class Keyword {
 			System.out.println("Invalid browser name");
 		}
 		System.out.println("Launched browser: " + browserName);
+		throw new InvalidBrowserException(browserName);
 	}
 
 	public void launchUrl(String url) {
 		driver.get(url);
 		System.out.println("Launched url: " + url);
+		driver.manage().window().maximize();
 	}
 
 	public void clickOn(WebElement element) {
 		element.click();
-		System.out.println("Clicked on: " + element.getText());
+		//System.out.println("Clicked on: " + element.getText());
 
+	}
+
+	public void sendkeys(WebElement element, String text) {
+		element.sendKeys(text);
 	}
 
 	public void closeBrowser() {
