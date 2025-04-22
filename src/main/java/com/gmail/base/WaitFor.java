@@ -18,6 +18,10 @@ public class WaitFor {
 		wait.until(ExpectedConditions.visibilityOf(element));
 
 	}
+	public static void elementToBeClick(WebElement ele) {
+
+		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
 	
 	 public static void untilUrlLoad(String url) {
 			WebDriverWait wait1 = new WebDriverWait(Keyword.driver, Duration.ofSeconds(10));

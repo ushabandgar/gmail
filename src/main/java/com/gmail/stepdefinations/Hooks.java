@@ -13,7 +13,6 @@ public class Hooks {
 	@Before
   
 	public void setUp() throws InvalidBrowserException {
-	public void setUp() {
 
 		keyword.openBrowser("chrome");
 		keyword.launchUrl("https://workspace.google.com/intl/en-US/gmail/");
