@@ -11,7 +11,7 @@ Scenario: Verify that on click of "Create Account" showing options "For my perso
 When User click on "Create account" button
 Then On click of "Create Account" showing options "For my personal use" and "For my work or business"
 
-
+@today
 Scenario: Verify on click of "For my Personal use" , user is redirecting to url "https://accounts.google.com/lifecycle/steps/signup/name........" or signup page
 When User click on "Create account" button
 And User click on "For my personal use" option
