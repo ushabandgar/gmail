@@ -5,6 +5,7 @@ import com.gmail.pages.CreateAccountPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 
 public class CreateAccountSteps {
 
@@ -43,5 +44,29 @@ public class CreateAccountSteps {
 	public void verifyUserNavigateToSignUpPageOnClickForMyPersonalUse() {
 		CreateAccountPage createAccountPage = new CreateAccountPage();
 		createAccountPage.verifyUserNavigateToSignUpPageOnClickForMyPersonalUse();
+	}
+	
+	@And("User enters {string}")
+	public void enterFirstName(String firstName) {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.enterFirstName(firstName);
+	}
+	
+	@And("Click on Next button")
+	public void clickOnNext() {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.clickOnNextButton();
+	}
+	
+	@Then("User should get error message {string}")
+	public void verifyFirstNameIsMandatory(String firstNameErrorMessage) {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.verifyFirstNameErrorMessage(firstNameErrorMessage);
+	}
+	
+	@Then("User should navigate to {string} page")
+	public void verifyUserNaviagteToBasicInformationPage(String basicInfoPage) {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.verifyUserNavigateToBasicInfoPage(basicInfoPage);
 	}
 }

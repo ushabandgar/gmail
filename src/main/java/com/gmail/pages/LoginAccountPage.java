@@ -38,7 +38,7 @@ public class LoginAccountPage {
 		emailInputBox.sendKeys("rosh19989@gmail.com");
 		nextBtn.click();
 	
-		
+		Thread.sleep(5000);
 		passwordInputBox.sendKeys("Rosh@12345");
 		nextBtn.click();
 	}
