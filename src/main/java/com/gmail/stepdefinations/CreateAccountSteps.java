@@ -1,5 +1,7 @@
 package com.gmail.stepdefinations;
 
+import java.io.IOException;
+
 import com.gmail.pages.CreateAccountPage;
 
 import io.cucumber.java.en.And;
@@ -68,5 +70,27 @@ public class CreateAccountSteps {
 	public void verifyUserNaviagteToBasicInformationPage(String basicInfoPage) {
 		CreateAccountPage createAccountPage = new CreateAccountPage();
 		createAccountPage.verifyUserNavigateToBasicInfoPage(basicInfoPage);
+	}
+	
+	@And("User enter username from excel")
+	public void enterUserNameFromExcel() throws IOException {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.getUsernameFromExcel();
+		createAccountPage.enterFirstNameFromExcel();
+	}
+	@And("User enters firstname as {string}")
+	public void enterFirstNameAsParameter(String firstName) {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.enterFirstName(firstName);
+	}
+	@And("Click On Back from browser")
+	public void clickBackFromCreateAccountPage() {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.clickOnBackButton();
+	}
+	@Then("User should navigate to Sign In page")
+	public void verifyNavigateToSingInPage() {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.verifyAfterBackNavigateToSignInPage();
 	}
 }
