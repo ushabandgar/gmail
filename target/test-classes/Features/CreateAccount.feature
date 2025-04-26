@@ -25,7 +25,7 @@ And Click on Next button
 Then User should get error message "Enter first name"
 
 
-@today
+
 Scenario Outline: Verify on click of "Next" button after entering First name is navigating to "Basic Information" page.
 When User click on "Create account" button
 And User click on "For my personal use" option
@@ -38,4 +38,18 @@ Examples:
 |usha|
 |parth|
 
+
+Scenario: read firstName from excel
+When User click on "Create account" button
+And User click on "For my personal use" option
+And User enter username from excel
+And Click on Next button
+Then User should navigate to "Basic information" page
+
+@today
+Scenario: Verify on click of Back button from Create Account page is navigating to Login page.
+When User click on "Create account" button
+And User click on "For my personal use" option
+And Click On Back from browser
+Then User should navigate to Sign In page
 
