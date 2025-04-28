@@ -29,7 +29,7 @@ Then User should get error message "Enter first name"
 Scenario Outline: Verify on click of "Next" button after entering First name is navigating to "Basic Information" page.
 When User click on "Create account" button
 And User click on "For my personal use" option
-And User enters "<firstName>"
+And User enters "<firstName>" as username
 And Click on Next button
 Then User should navigate to "Basic information" page
 
@@ -46,10 +46,21 @@ And User enter username from excel
 And Click on Next button
 Then User should navigate to "Basic information" page
 
-@today
 Scenario: Verify on click of Back button from Create Account page is navigating to Login page.
 When User click on "Create account" button
 And User click on "For my personal use" option
 And Click On Back from browser
 Then User should navigate to Sign In page
 
+@today
+Scenario: Verify ui elements of Basic Information page
+When User click on "Create account" button
+And User click on "For my personal use" option
+And User enters "parth" as username
+And Click on Next button 
+Then User should see the "Month" dropdown
+And User should see the "Day" input
+And User should see the "Year" input
+And User should see the "Gender" dropdown
+And User should see the "Why we ask for birthday and gender" link
+And User should see the "Next" button
