@@ -8,10 +8,10 @@ import org.testng.Assert;
 import com.gmail.base.Keyword;
 import com.gmail.pages.CreateAccountPage;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_scouse.An;
 
 public class CreateAccountSteps {
 
@@ -59,7 +59,7 @@ public class CreateAccountSteps {
 	}
 
 	@And("Click on Next button")
-	public void clickOnNext() {
+	public void clickOnNext() throws InterruptedException {
 		CreateAccountPage createAccountPage = new CreateAccountPage();
 		createAccountPage.clickOnNextButton();
 	}
@@ -103,37 +103,35 @@ public class CreateAccountSteps {
 
 	@Then("User should see the {string} dropdown")
 	public void userShouldSeeTheDropDown(String dropDownName) throws InterruptedException {
-		switch (dropDownName) {
-		case "Month": {
-			Thread.sleep(3000);
-			Assert.assertTrue(Keyword.driver.findElement(By.id("month")).isDisplayed());
-			break;
-		}
-		case "Gender": {
-			Assert.assertTrue(Keyword.driver.findElement(By.id("gender")).isDisplayed());
-			break;
-		}
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.dropDowns(dropDownName);
 	}
-	}
+
 	@And("User should see the {string} input")
 	public void userShouldSeeTheInput(String inputfieldName) {
-		switch (inputfieldName) {
-		case "Day": {
-			Assert.assertTrue(Keyword.driver.findElement(By.id("day")).isDisplayed());
-			break;
-		}
-		case "Year": {
-			Assert.assertTrue(Keyword.driver.findElement(By.id("year")).isDisplayed());
-			break;
-		}
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.userShouldSeeInputFields(inputfieldName);
 	}
-	}
+
 	@And("User should see the {string} link")
 	public void userShouldTheLink(String linkName) {
 		Assert.assertTrue(Keyword.driver.findElement(By.partialLinkText(linkName)).isDisplayed());
 	}
+
 	@And("User should see the {string} button")
 	public void userShouldSeeTheButton(String buttonText) {
 		Assert.assertTrue(Keyword.driver.findElement(By.xpath("//span[text()=\"Next\"]")).isDisplayed());
+	}
+
+	@And("User click on {string} Dropdown")
+	public void userClickOnDropdown(String dropDownName) {
+
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.clickOnDropDown(dropDownName);
+	}
+	@Then("The Month dropdown should display following months in correct order:")
+	public void monthDropdownShouldHaveAllMonthInOrder(DataTable datatable) throws InterruptedException {
+		CreateAccountPage createAccountPage = new CreateAccountPage();
+		createAccountPage.verifyMonthDropdownListwithOrder(datatable);
 	}
 }

@@ -52,7 +52,6 @@ And User click on "For my personal use" option
 And Click On Back from browser
 Then User should navigate to Sign In page
 
-@today
 Scenario: Verify ui elements of Basic Information page
 When User click on "Create account" button
 And User click on "For my personal use" option
@@ -64,3 +63,24 @@ And User should see the "Year" input
 And User should see the "Gender" dropdown
 And User should see the "Why we ask for birthday and gender" link
 And User should see the "Next" button
+
+@today
+Scenario: Verify that Month dropdwon has 12 months in correct order
+When User click on "Create account" button
+And User click on "For my personal use" option
+And User enters "parth" as username
+And Click on Next button 
+And User click on "Month" Dropdown
+Then The Month dropdown should display following months in correct order:
+      | January   |
+      | February  |
+      | March     |
+      | April     |
+      | May       |
+      | June      |
+      | July      |
+      | August    |
+      | September |
+      | October   |
+      | November  |
+      | December  |

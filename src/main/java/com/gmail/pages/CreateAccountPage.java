@@ -14,13 +14,17 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.gmail.base.Keyword;
 import com.gmail.base.WaitFor;
+
+import io.cucumber.datatable.DataTable;
 
 public class CreateAccountPage extends WaitFor {
 
@@ -50,6 +54,12 @@ public class CreateAccountPage extends WaitFor {
 	@FindBy(xpath = "//h1[@id=\"headingText\"]/span")
 	private WebElement basicInfoPageHeading;
 
+	@FindBy(id="month")
+	private WebElement monthDropdown;
+	
+	@FindBy(id="gender")
+	private WebElement genderDropDown;
+	
 	public CreateAccountPage() {
 		PageFactory.initElements(Keyword.driver, this);
 	}
@@ -114,10 +124,11 @@ public class CreateAccountPage extends WaitFor {
 		System.out.println("entered firstname as :" + firstName);
 	}
 
-	public void clickOnNextButton() {
+	public void clickOnNextButton() throws InterruptedException {
 
 		nextButton.click();
 
+		Thread.sleep(3000);
 	}
 
 	public void verifyFirstNameErrorMessage(String firstNameErrorMessage) {
@@ -176,6 +187,70 @@ public class CreateAccountPage extends WaitFor {
 	public void verifyAfterBackNavigateToSignInPage() {
 		WaitFor.untilUrlLoad("gmail");
 		Assert.assertTrue(Keyword.driver.getCurrentUrl().contains("gmail"));
+	}
+
+	public void dropDowns(String dropDownName) {
+		switch (dropDownName) {
+		case "Month": {
+			WaitFor.untilUrlLoad("birthdaygender");
+			Assert.assertTrue(monthDropdown.isDisplayed());
+			break;
+		}
+		case "Gender": {
+			WaitFor.untilUrlLoad("birthdaygender");
+			Assert.assertTrue(genderDropDown.isDisplayed());
+			break;
+		}
+	}
+	}
+
+	public void userShouldSeeInputFields(String inputfieldName) {
+
+		switch (inputfieldName) {
+		case "Day": {
+			Assert.assertTrue(Keyword.driver.findElement(By.id("day")).isDisplayed());
+			break;
+		}
+		case "Year": {
+			Assert.assertTrue(Keyword.driver.findElement(By.id("year")).isDisplayed());
+			break;
+		}
+	}
+	}
+
+	public void clickOnDropDown(String dropDownName) {
+
+		switch (dropDownName) {
+		case "Month": {
+			WaitFor.untilElementToBeClickable(monthDropdown);
+			monthDropdown.click();
+			break;
+		}
+		case "Gender": {
+			WaitFor.untilElementToBeClickable(genderDropDown);
+			genderDropDown.click();
+
+			break;
+		}
+	}
+	}
+
+	public void verifyMonthDropdownListwithOrder(DataTable datatable) throws InterruptedException {
+
+		Thread.sleep(3000);
+		List<String> expectedMonths=datatable.asList();
+		System.out.println("expectedMonths: "+expectedMonths);
+		Select monthSelect=new Select(monthDropdown);
+		List<WebElement> monthDropDownOptions=monthSelect.getOptions();
+		
+		ArrayList<String> actualMonths=new ArrayList<String>();
+		for(WebElement option: monthDropDownOptions) {
+			String text=option.getText().trim();
+			if(!text.isEmpty()) {
+				actualMonths.add(text);
+			}
+		}
+		Assert.assertEquals(actualMonths, expectedMonths);
 	}
 
 }
